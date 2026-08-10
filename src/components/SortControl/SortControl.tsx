@@ -78,7 +78,7 @@ export function SortControl({ isOpen, value, onChange, onClose }: SortControlPro
               onChange={() => { }}
             />
             <img
-              src={value === 'birthDate' ? '/images/selected.svg' : '/images/unselected.svg'}
+              src={value === 'birthDate' ? `${BASE_URL}/images/selected.svg` : `${BASE_URL}/images/unselected.svg`}
               alt=""
               className={styles.radioIcon}
             />
