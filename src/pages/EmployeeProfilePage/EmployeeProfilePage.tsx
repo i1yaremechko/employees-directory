@@ -106,12 +106,12 @@ export function EmployeeProfilePage() {
 
       <div className={styles.bottomWrapper}>
         <div className={styles.infoRow}>
-          <img className={styles.infoIcon} src="/images/star.svg" alt="" />
+          <img className={styles.infoIcon} src={`${BASE_URL}/images/star.svg`} alt="" />
           <span className={`${styles.infoText} ${styles.infoText_infoBirthDate}`}>{formatBirthDateLong(employee.birthDate)}</span>
           <span className={styles.infoExtra}>{calculateAge(employee.birthDate)} years old</span>
         </div>
         <div className={styles.infoRow}>
-          <img className={styles.infoIcon} src="/images/phone.svg" alt="" />
+          <img className={styles.infoIcon} src={`${BASE_URL}/images/phone.svg`} alt="" />
           <span className={styles.infoText}>{employee.phone}</span>
         </div>
       </div>
