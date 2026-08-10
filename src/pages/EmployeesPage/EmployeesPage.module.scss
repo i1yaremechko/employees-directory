@@ -1,0 +1,53 @@
+@use '../../styles/variables' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 100%;
+  padding: 50px $spacing-10 $spacing-5;
+
+  @include desktop {
+    gap: $spacing-9;
+    width: $desktop-width;
+    max-width: $desktop-width;
+    margin: 0 auto;
+    padding: 17px $spacing-10 $spacing-5 17px;
+  }
+
+  &--offline {
+    @include desktop {
+      padding-top: 9px;
+    }
+  }
+
+  &--hasError {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+  }
+}
+
+.title {
+  display: none;
+  margin: 0 0 $spacing-4 7px;
+  font-size: $font-size-24;
+  font-weight: $font-weight-700;
+  line-height: $line-height-28;
+  color: $color-text;
+
+  @include desktop {
+    display: block;
+  }
+}

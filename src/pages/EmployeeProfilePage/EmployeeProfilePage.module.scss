@@ -1,0 +1,120 @@
+@use '../../styles/variables' as *;
+
+.loading {
+  padding: $spacing-14 $spacing-10;
+  color: $color-text-muted;
+  text-align: center;
+}
+
+.topWrapper {
+  background-color: $color-bg-light;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: $size-profile-content-height;
+  padding-bottom: $spacing-11;
+
+  @include desktop {
+    width: $desktop-width;
+    margin: 0 auto;
+  }
+}
+
+.backButton {
+  position: absolute;
+  top: $spacing-5;
+  left: $spacing-6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size-button-back;
+  height: $size-button-back;
+  background-color: transparent;
+  border: none;
+  border-radius: $border-radius-circle;
+
+  @include desktop {
+    top: 15px;
+    left: 18px;
+  }
+
+  &:hover {
+    background-color: $color-border;
+  }
+}
+
+.avatar {
+  width: $size-avatar-lg;
+  height: $size-avatar-lg;
+  border-radius: $border-radius-circle;
+  object-fit: cover;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin: $spacing-11 0 $spacing-8;
+  font-size: $font-size-24;
+  font-weight: $font-weight-700;
+  line-height: $line-height-28;
+  letter-spacing: -0.1px;
+}
+
+.tag {
+  margin-left: $spacing-4;
+  color: $color-text-muted;
+  font-size: $font-size-17;
+  font-weight: $font-weight-400;
+}
+
+.position {
+  color: $color-text-secondary;
+  text-transform: capitalize;
+  font-size: $font-size-13;
+  font-weight: $font-weight-400;
+}
+
+.bottomWrapper {
+  padding: $spacing-6 18px;
+
+  @include desktop {
+    width: $desktop-width;
+    margin: 0 auto;
+  }
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  min-height: $spacing-16;
+  margin-bottom: $spacing-5;
+  font-weight: $font-weight-500;
+  letter-spacing: 0.1px;
+  text-transform: lowercase;
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  margin-right: $spacing-9;
+}
+
+.infoText {
+  color: $color-text;
+}
+
+.infoText_infoBirthDate {
+  letter-spacing: -0.1px;
+}
+
+.infoExtra {
+  margin: 0 $spacing-3 0 auto;
+  color: $color-text-muted;
+  font-weight: $font-weight-500;
+  letter-spacing: -0.1px;
+  text-transform: none;
+}

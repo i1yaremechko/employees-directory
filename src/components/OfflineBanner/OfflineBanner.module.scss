@@ -1,0 +1,50 @@
+@use '../../styles/variables' as *;
+
+.banner {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  z-index: 1000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - #{$spacing-13});
+  max-width: 343px;
+  padding: $spacing-10 $spacing-17 $spacing-10 $spacing-10;
+  color: $color-white;
+  background-color: $color-error;
+  border-radius: 12px;
+
+  @include desktop {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: $spacing-10 $spacing-11 20px;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.banner__title {
+  display: none;
+
+  @include desktop {
+    display: block;
+    margin-bottom: $spacing-12;
+    font-size: $font-size-24;
+    font-weight: $font-weight-700;
+    line-height: $line-height-28;
+  }
+}
+
+.banner__message {
+  margin: 0;
+  text-align: left;
+  font-size: $font-size-13;
+  font-weight: $font-weight-500;
+  line-height: $line-height-16;
+}

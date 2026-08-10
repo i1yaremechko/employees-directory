@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  width: 100%;
+  min-height: $size-item-min-height;
+  color: unset;
+  text-align: left;
+  background-color: transparent;
+  border: 0;
+
+  &:hover {
+    background-color: $color-bg-light;
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: $size-avatar-sm;
+  height: $size-avatar-sm;
+  border-radius: $border-radius-circle;
+  object-fit: cover;
+}
+
+.description {
+  margin-top: -#{$spacing-1};
+
+  @include desktop {
+    width: $size-description-desktop-width;
+    margin-top: $spacing-3;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-2;
+  font-weight: $font-weight-500;
+  line-height: $line-height-20;
+}
+
+.tag {
+  margin-left: $spacing-4;
+  color: $color-text-muted;
+  font-size: $font-size-14;
+  font-weight: $font-weight-400;
+}
+
+.position {
+  color: $color-text-secondary;
+  text-transform: capitalize;
+  font-size: $font-size-13;
+  font-weight: $font-weight-400;
+
+  @include desktop {
+    margin-bottom: $spacing-4;
+  }
+}
+
+.birthDate {
+  margin-top: -#{$spacing-4};
+  margin-right: $spacing-3;
+  margin-left: auto;
+  color: $color-text-secondary;
+  text-transform: lowercase;
+  font-size: $font-size-15;
+  font-weight: $font-weight-400;
+}

@@ -1,0 +1,55 @@
+@use '../../styles/variables' as *;
+
+.wrapper {
+  display: flex;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: $size-input-height;
+  padding: 0 $spacing-6 0 13px;
+  background-color: $color-bg-light;
+  border-radius: $border-radius-md;
+}
+
+.searchIcon {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  height: $line-height-20;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: $color-text;
+  font-size: $font-size-15;
+  font-weight: $font-weight-500;
+  line-height: $line-height-20;
+  letter-spacing: normal;
+
+  &::placeholder {
+    color: $color-border;
+  }
+}
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-4;
+  background: none;
+  border: none;
+}
+
+.sortIcon {
+  margin: 0 1px 2px 0;
+}
+
+.sortIconActive {
+  filter: invert(26%) sepia() saturate(7476%) hue-rotate(246deg) brightness(82%) contrast(82%);
+}

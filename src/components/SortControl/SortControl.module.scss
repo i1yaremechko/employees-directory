@@ -1,0 +1,119 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+
+.wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 $spacing-6;
+
+  @include desktop {
+    align-items: center;
+  }
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: $color-bg-overlay;
+  border: none;
+  cursor: default;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: $size-panel-max-width;
+  height: auto;
+  padding: $spacing-10 $spacing-10 $spacing-6;
+  background-color: $color-white;
+  border-top-left-radius: $border-radius-lg;
+  border-top-right-radius: $border-radius-lg;
+
+  @include desktop {
+    border-radius: $border-radius-lg;
+  }
+}
+
+.closeButton {
+  display: none;
+
+  @include desktop {
+    position: absolute;
+    top: $spacing-11;
+    right: 23px; // one-off value, no matching token
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size-icon-sm;
+    height: $size-icon-sm;
+    padding: 0;
+    background-color: $color-bg-light;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  &:hover {
+    background-color: color.adjust($color-bg-light, $lightness: 2%);
+  }
+}
+
+.closeIcon {
+  display: block;
+  width: $size-icon-xs;
+  height: $size-icon-xs;
+}
+
+.title {
+  margin-top: $spacing-6;
+  margin-bottom: $spacing-10;
+  color: $color-text;
+  font-size: $font-size-20;
+  font-weight: $font-weight-600;
+  line-height: $line-height-24;
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 120px;
+  padding: 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.radioIcon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.labelText {
+  margin-left: $spacing-9;
+  color: $color-text;
+  font-size: $font-size-16;
+  font-weight: $font-weight-500;
+  line-height: $line-height-20;
+  letter-spacing: normal;
+}

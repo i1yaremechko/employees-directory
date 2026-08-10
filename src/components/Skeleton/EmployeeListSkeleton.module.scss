@@ -1,0 +1,69 @@
+@use '../../styles/variables' as *;
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+  padding: $spacing-9 $spacing-10 $spacing-8;
+  list-style: none;
+
+  @include desktop {
+    gap: $spacing-10;
+    width: $desktop-width;
+    margin: 0 auto;
+    padding: $spacing-7 $spacing-10 $spacing-8;
+  }
+}
+
+.skeletonItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  min-height: $size-item-min-height;
+}
+
+.skeletonAvatar {
+  flex-shrink: 0;
+  width: $size-avatar-sm;
+  height: $size-avatar-sm;
+  background-color: $color-bg-light;
+  border-radius: $border-radius-circle;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonLines {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.skeletonLine {
+  height: $size-skeleton-line;
+  background-color: $color-bg-light;
+  border-radius: $border-radius-xs;
+  animation: pulse 1.5s ease-in-out infinite;
+
+  &--title {
+    width: 144px;
+    height: 16px;
+  }
+
+  &--subtitle {
+    width: 80px;
+    height: 12px;
+  }
+}

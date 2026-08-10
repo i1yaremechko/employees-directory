@@ -1,0 +1,118 @@
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { ApiError, fetchEmployeeById } from '@api/employees';
+import { ErrorState } from '@components/ErrorState/ErrorState';
+import type { Employee } from '@app-types/employee';
+
+import styles from './EmployeeProfilePage.module.scss';
+
+function formatPosition(position: string): string {
+  return position.charAt(0) + position.slice(1).toLowerCase();
+}
+
+function formatBirthDateLong(birthDate: string): string {
+  const [day, month, year] = birthDate.split('.').map(Number);
+  const date = new Date(year, month - 1, day);
+  const formatted = date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+  return formatted.toLowerCase();
+}
+
+function calculateAge(birthDate: string): number {
+  const [day, month, year] = birthDate.split('.').map(Number);
+  const birth = new Date(year, month - 1, day);
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const hasHadBirthdayThisYear =
+    today.getMonth() > birth.getMonth() ||
+    (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+  if (!hasHadBirthdayThisYear) age -= 1;
+  return age;
+}
+
+export function EmployeeProfilePage() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const [employee, setEmployee] = useState<Employee | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<ApiError | null>(null);
+
+  useEffect(() => {
+    if (!id) return;
+
+    let isCancelled = false;
+    setIsLoading(true);
+    setError(null);
+
+    fetchEmployeeById(id)
+      .then((data) => {
+        if (!isCancelled) setEmployee(data);
+      })
+      .catch((err: unknown) => {
+        if (!isCancelled) {
+          setError(err instanceof ApiError ? err : new ApiError('UNKNOWN_ERROR'));
+        }
+      })
+      .finally(() => {
+        if (!isCancelled) setIsLoading(false);
+      });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [id]);
+
+  if (isLoading) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
+
+  if (error || !employee) {
+    return (
+      <ErrorState
+        variant={error?.status ? 'unexpected' : 'no-connection'}
+        onRetry={() => navigate(0)}
+      />
+    );
+  }
+
+  return (
+    <div className={styles.profile}>
+      <div className={styles.topWrapper}>
+        <div className={styles.content}>
+          <button
+            type="button"
+            className={styles.backButton}
+            onClick={() => navigate(-1)}
+            aria-label="Go back"
+          >
+            <img src="/images/arrow.svg" alt="" />
+          </button>
+          <img className={styles.avatar} alt="Avatar" src={employee.avatarUrl} />
+
+          <h1 className={styles.title}>
+            {employee.firstName} {employee.lastName}
+            {employee.tag && <span className={styles.tag}>{employee.tag}</span>}
+          </h1>
+
+          <p className={styles.position}>{formatPosition(employee.position)}</p>
+        </div>
+      </div>
+
+      <div className={styles.bottomWrapper}>
+        <div className={styles.infoRow}>
+          <img className={styles.infoIcon} src="/images/star.svg" alt="" />
+          <span className={`${styles.infoText} ${styles.infoText_infoBirthDate}`}>{formatBirthDateLong(employee.birthDate)}</span>
+          <span className={styles.infoExtra}>{calculateAge(employee.birthDate)} years old</span>
+        </div>
+        <div className={styles.infoRow}>
+          <img className={styles.infoIcon} src="/images/phone.svg" alt="" />
+          <span className={styles.infoText}>{employee.phone}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
