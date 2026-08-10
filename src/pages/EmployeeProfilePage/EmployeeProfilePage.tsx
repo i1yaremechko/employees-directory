@@ -7,6 +7,8 @@ import type { Employee } from '@app-types/employee';
 
 import styles from './EmployeeProfilePage.module.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 function formatPosition(position: string): string {
   return position.charAt(0) + position.slice(1).toLowerCase();
 }
@@ -89,7 +91,7 @@ export function EmployeeProfilePage() {
             onClick={() => navigate(-1)}
             aria-label="Go back"
           >
-            <img src="/images/arrow.svg" alt="" />
+            <img src={`${BASE_URL}/images/arrow.svg`} alt="" />
           </button>
           <img className={styles.avatar} alt="Avatar" src={employee.avatarUrl} />
 

@@ -1,10 +1,11 @@
-import flyingSaucer from '/images/flying-saucer.svg';
 import styles from './ErrorState.module.scss';
 
 interface ErrorStateProps {
   variant?: 'unexpected' | 'no-connection';
   onRetry?: () => void;
 }
+
+const BASE_URL = import.meta.env.BASE_URL;
 
 export function ErrorState({ variant = 'unexpected', onRetry }: ErrorStateProps) {
   const isNoConnection = variant === 'no-connection';
@@ -20,7 +21,7 @@ export function ErrorState({ variant = 'unexpected', onRetry }: ErrorStateProps)
   return (
     <div className={styles.error} role="alert">
       <img
-        src={flyingSaucer}
+        src={`${BASE_URL}/images/flying-saucer.svg`}
         alt=""
         className={styles.error__icon}
         width={56}

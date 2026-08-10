@@ -11,6 +11,8 @@ interface EmployeeListProps {
   emptySubtitle?: string;
 }
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export function EmployeeList({
   employees,
   sort,
@@ -21,7 +23,7 @@ export function EmployeeList({
     return (
       <div className={styles.emptyContainer}>
         <img
-          src="/images/left-pointing-magnifying-glass.svg"
+          src={`${BASE_URL}/images/left-pointing-magnifying-glass.svg`}
           alt="Not found"
           className={styles.emptyIcon}
         />

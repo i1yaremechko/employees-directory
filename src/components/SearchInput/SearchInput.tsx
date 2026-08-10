@@ -9,6 +9,8 @@ interface SearchInputProps {
   isSortActive?: boolean;
 }
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export function SearchInput({
   value,
   onChange,
@@ -22,7 +24,7 @@ export function SearchInput({
   return (
     <div className={styles.wrapper}>
       <div className={styles.inputBox}>
-        <img className={styles.searchIcon} src="/images/search.svg" alt="" />
+        <img className={styles.searchIcon} src={`${BASE_URL}/images/search.svg`} alt="" />
         <input
           className={styles.input}
           type="text"
@@ -39,7 +41,7 @@ export function SearchInput({
         >
           <img
             className={`${styles.sortIcon} ${isSortActive ? styles.sortIconActive : ''}`}
-            src="/images/list.svg"
+            src={`${BASE_URL}/images/list.svg`}
             alt=""
           />
         </button>

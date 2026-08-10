@@ -11,6 +11,8 @@ interface SortControlProps {
   onClose: () => void;
 }
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export function SortControl({ isOpen, value, onChange, onClose }: SortControlProps) {
   useEffect(() => {
     if (!isOpen) return;
@@ -48,7 +50,7 @@ export function SortControl({ isOpen, value, onChange, onClose }: SortControlPro
           onClick={onClose}
           aria-label="Close"
         >
-          <img src="/images/close.svg" alt="" className={styles.closeIcon} />
+          <img src={`${BASE_URL}/images/close.svg`} alt="" className={styles.closeIcon} />
         </button>
 
         <div className={styles.options} role="radiogroup" aria-labelledby="sort-title">
@@ -61,7 +63,7 @@ export function SortControl({ isOpen, value, onChange, onClose }: SortControlPro
               onChange={() => { }}
             />
             <img
-              src={value === 'alphabet' ? '/images/selected.svg' : '/images/unselected.svg'}
+              src={value === 'alphabet' ? `${BASE_URL}/images/selected.svg` : `${BASE_URL}/images/unselected.svg`}
               alt=""
               className={styles.radioIcon}
             />
