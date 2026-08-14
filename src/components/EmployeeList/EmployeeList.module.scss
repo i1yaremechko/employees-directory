@@ -4,13 +4,13 @@
 .list {
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: $spacing-0;
   padding: $spacing-7 $spacing-10;
   list-style: none;
 
   @include desktop {
     width: $desktop-width;
-    margin: 0 auto;
+    margin: $spacing-0 auto;
   }
 }
 
@@ -27,8 +27,8 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-4;
-  margin: 0;
-  padding: 0;
+  margin: $spacing-0;
+  padding: $spacing-0;
   list-style: none;
 }
 
@@ -37,8 +37,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: $spacing-12 0;
-  padding: 0 $spacing-11;
+  margin: $spacing-12 $spacing-0;
+  padding: $spacing-0 $spacing-11;
 
   &::before,
   &::after {
@@ -50,7 +50,7 @@
 }
 
 .dividerYear {
-  padding: 0 76px; // one-off value, no matching token
+  padding: $spacing-0 $spacing-divider-year-padding;
   color: $color-border;
   font-size: $font-size-15;
   font-weight: $font-weight-500;
@@ -64,8 +64,8 @@
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - #{$spacing-21});
-  margin: 0 auto;
-  padding: 0 $spacing-10;
+  margin: $spacing-0 auto;
+  padding: $spacing-0 $spacing-10;
   text-align: center;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .emptyTitle {
-  margin: 0 0 $spacing-8 0;
+  margin: $spacing-0 $spacing-0 $spacing-8 $spacing-0;
   color: $color-text;
   font-size: $font-size-17;
   font-weight: $font-weight-600;
@@ -85,7 +85,7 @@
 }
 
 .emptySubtitle {
-  margin: 0;
+  margin: $spacing-0;
   color: $color-text-muted;
   font-size: $font-size-16;
   font-weight: $font-weight-400;

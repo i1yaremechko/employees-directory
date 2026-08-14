@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 .loading {
   padding: $spacing-14 $spacing-10;
@@ -21,7 +21,7 @@
 
   @include desktop {
     width: $desktop-width;
-    margin: 0 auto;
+    margin: $spacing-0 auto;
   }
 }
 
@@ -39,8 +39,8 @@
   border-radius: $border-radius-circle;
 
   @include desktop {
-    top: 15px;
-    left: 18px;
+    top: $spacing-back-desktop-top;
+    left: $spacing-bottom-wrapper;
   }
 
   &:hover {
@@ -58,7 +58,7 @@
 .title {
   display: flex;
   align-items: center;
-  margin: $spacing-11 0 $spacing-8;
+  margin: $spacing-11 $spacing-0 $spacing-8;
   font-size: $font-size-24;
   font-weight: $font-weight-700;
   line-height: $line-height-28;
@@ -80,11 +80,11 @@
 }
 
 .bottomWrapper {
-  padding: $spacing-6 18px;
+  padding: $spacing-6 $spacing-bottom-wrapper;
 
   @include desktop {
     width: $desktop-width;
-    margin: 0 auto;
+    margin: $spacing-0 auto;
   }
 }
 
@@ -112,7 +112,7 @@
 }
 
 .infoExtra {
-  margin: 0 $spacing-3 0 auto;
+  margin: $spacing-0 $spacing-3 $spacing-0 auto;
   color: $color-text-muted;
   font-weight: $font-weight-500;
   letter-spacing: -0.1px;

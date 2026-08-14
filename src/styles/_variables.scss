@@ -6,6 +6,7 @@ $color-text-muted: #97979b;
 $color-border: #c3c3c6;
 $color-bg-light: #f7f7f8;
 $color-bg-overlay: rgba(5, 5, 10, 0.16);
+$color-bg-hover-secondary: #f0f0f2;
 $color-error: #f44336;
 $color-white: #ffffff;
 $color-black: #000000;
@@ -60,6 +61,22 @@ $spacing-21: 200px;
 $spacing-22: 373px;
 $spacing-23: 508px;
 
+$spacing-title-offset: 7px;
+$spacing-offline-desktop: 9px;
+$spacing-search-offset: 10px;
+$spacing-search-padding: 13px;
+$spacing-back-desktop-top: 15px;
+$spacing-filter-gap: 15px;
+$spacing-desktop-offset: 17px;
+$spacing-bottom-wrapper: 18px;
+$spacing-banner-bottom: 20px;
+$spacing-close-right: 23px;
+$spacing-banner-desktop-width: 343px;
+$spacing-filter-mobile-top: 50px;
+$spacing-divider-year-padding: 76px;
+$spacing-error-desktop-height: 260px;
+$spacing-error-max-width: 320px;
+
 $size-icon-xs: 10px;
 $size-icon-sm: 24px;
 $size-icon-md: 36px;
@@ -77,8 +94,12 @@ $size-skeleton-line: 14px;
 $size-profile-content-height: 280px;
 $size-error-min-height: 77vh;
 
+$size-skeleton-title-width: 144px;
+$size-skeleton-subtitle-width: 80px;
+$size-options-height: 120px;
+
 $border-radius-xs: 10px;
-$border-radius-sm: 8px;
+$border-radius-sm: 12px;
 $border-radius-md: 16px;
 $border-radius-lg: 20px;
 $border-radius-pill: 999px;

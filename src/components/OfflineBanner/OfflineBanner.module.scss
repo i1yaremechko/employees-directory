@@ -2,29 +2,29 @@
 
 .banner {
   position: fixed;
-  bottom: 40px;
+  bottom: $spacing-14;
   left: 50%;
   z-index: 1000;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: calc(100% - #{$spacing-13});
-  max-width: 343px;
+  max-width: $spacing-banner-desktop-width;
   padding: $spacing-10 $spacing-17 $spacing-10 $spacing-10;
   color: $color-white;
   background-color: $color-error;
-  border-radius: 12px;
+  border-radius: $border-radius-sm;
 
   @include desktop {
     position: relative;
-    top: 0;
-    left: 0;
+    top: $spacing-0;
+    left: $spacing-0;
     bottom: auto;
     width: 100%;
     max-width: 100%;
-    padding: $spacing-10 $spacing-11 20px;
-    border-radius: 0;
-    box-shadow: none;
+    padding: $spacing-10 $spacing-11 $spacing-banner-bottom;
+    border-radius: $spacing-0;
+    box-shadow: $shadow-none;
     transform: none;
   }
 }
@@ -42,7 +42,7 @@
 }
 
 .banner__message {
-  margin: 0;
+  margin: $spacing-0;
   text-align: left;
   font-size: $font-size-13;
   font-weight: $font-weight-500;

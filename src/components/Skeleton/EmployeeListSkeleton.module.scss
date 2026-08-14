@@ -24,7 +24,7 @@
   @include desktop {
     gap: $spacing-10;
     width: $desktop-width;
-    margin: 0 auto;
+    margin: $spacing-0 auto;
     padding: $spacing-7 $spacing-10 $spacing-8;
   }
 }
@@ -58,12 +58,12 @@
   animation: pulse 1.5s ease-in-out infinite;
 
   &--title {
-    width: 144px;
-    height: 16px;
+    width: $size-skeleton-title-width;
+    height: $font-size-16;
   }
 
   &--subtitle {
-    width: 80px;
-    height: 12px;
+    width: $size-skeleton-subtitle-width;
+    height: $font-size-12;
   }
 }
