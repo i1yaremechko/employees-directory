@@ -16,6 +16,12 @@
   max-width: 100%;
   padding: $spacing-filter-mobile-top $spacing-10 $spacing-5;
 
+  @include tablet {
+    width: $content-width-tablet;
+    max-width: $content-width-tablet;
+    margin: $spacing-0 auto;
+  }
+
   @include desktop {
     gap: $spacing-9;
     width: $desktop-width;

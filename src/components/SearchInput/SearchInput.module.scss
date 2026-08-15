@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 .wrapper {
   display: flex;
@@ -31,7 +31,7 @@
   font-size: $font-size-15;
   font-weight: $font-weight-500;
   line-height: $line-height-20;
-  letter-spacing: normal;
+  letter-spacing: $letter-spacing-normal;
 
   &::placeholder {
     color: $color-border;
@@ -52,5 +52,5 @@
 }
 
 .sortIconActive {
-  filter: invert(26%) sepia() saturate(7476%) hue-rotate(246deg) brightness(82%) contrast(82%);
+  filter: $filter-icon-active;
 }

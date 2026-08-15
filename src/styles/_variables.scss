@@ -104,14 +104,33 @@ $border-radius-md: 16px;
 $border-radius-lg: 20px;
 $border-radius-pill: 999px;
 $border-radius-circle: 50%;
+$border-radius-none: 0;
 
 $shadow-none: none;
 $shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.08);
 $shadow-md: 0 12px 32px rgba(0, 0, 0, 0.12);
 
+$letter-spacing-tabs: 0.03px;
+$letter-spacing-tight: -0.1px;
+$letter-spacing-wide: 0.1px;
+$letter-spacing-normal: normal;
+
+$opacity-border-subtle: 0.36;
+$hover-lightness-subtle: 2%;
+
+$z-index-banner: 1000;
+$z-index-modal: 100;
+
+$transition-fast: 0.2s ease;
+$duration-pulse: 1.5s;
+
+$filter-icon-active: invert(26%) sepia() saturate(7476%) hue-rotate(246deg) brightness(82%) contrast(82%);
+
 $app-min-width: 375px;
 $desktop-width: 1280px;
+$breakpoint-tablet: 768px;
 $breakpoint-desktop: 1280px;
+$content-width-tablet: 680px;
 
 @mixin desktop {
   @media screen and (min-width: #{$breakpoint-desktop}) {
@@ -121,6 +140,12 @@ $breakpoint-desktop: 1280px;
 
 @mixin mobile {
   @media screen and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
     @content;
   }
 }

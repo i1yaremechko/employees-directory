@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 @keyframes pulse {
   0% {
@@ -21,6 +21,11 @@
   padding: $spacing-9 $spacing-10 $spacing-8;
   list-style: none;
 
+  @include tablet {
+    width: $content-width-tablet;
+    margin: $spacing-0 auto;
+  }
+
   @include desktop {
     gap: $spacing-10;
     width: $desktop-width;
@@ -42,7 +47,7 @@
   height: $size-avatar-sm;
   background-color: $color-bg-light;
   border-radius: $border-radius-circle;
-  animation: pulse 1.5s ease-in-out infinite;
+  animation: pulse $duration-pulse ease-in-out infinite;
 }
 
 .skeletonLines {
@@ -55,7 +60,7 @@
   height: $size-skeleton-line;
   background-color: $color-bg-light;
   border-radius: $border-radius-xs;
-  animation: pulse 1.5s ease-in-out infinite;
+  animation: pulse $duration-pulse ease-in-out infinite;
 
   &--title {
     width: $size-skeleton-title-width;

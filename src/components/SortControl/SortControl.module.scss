@@ -1,10 +1,10 @@
 @use 'sass:color';
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 .wrapper {
   position: fixed;
   inset: $spacing-0;
-  z-index: 100;
+  z-index: $z-index-modal;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -58,11 +58,11 @@
     border: none;
     border-radius: $border-radius-circle;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color $transition-fast;
   }
 
   &:hover {
-    background-color: color.adjust($color-bg-light, $lightness: 2%);
+    background-color: color.adjust($color-bg-light, $lightness: $hover-lightness-subtle);
   }
 }
 
@@ -115,5 +115,5 @@
   font-size: $font-size-16;
   font-weight: $font-weight-500;
   line-height: $line-height-20;
-  letter-spacing: normal;
+  letter-spacing: $letter-spacing-normal;
 }

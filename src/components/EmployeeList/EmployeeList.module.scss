@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 .container,
 .list {
@@ -7,6 +7,11 @@
   margin: $spacing-0;
   padding: $spacing-7 $spacing-10;
   list-style: none;
+
+  @include tablet {
+    width: $content-width-tablet;
+    margin: $spacing-0 auto;
+  }
 
   @include desktop {
     width: $desktop-width;

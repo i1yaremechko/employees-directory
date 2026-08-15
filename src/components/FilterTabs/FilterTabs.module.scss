@@ -1,9 +1,9 @@
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 .tabs {
   display: flex;
   height: $size-tab-height;
-  border-bottom: $size-divider-height solid rgba($color-border, 0.36);
+  border-bottom: $size-divider-height solid rgba($color-border, $opacity-border-subtle);
   overflow-x: auto;
   scrollbar-width: none;
 
@@ -26,12 +26,12 @@
   font-size: $font-size-15;
   font-weight: $font-weight-500;
   line-height: $line-height-20;
-  letter-spacing: 0.03px;
+  letter-spacing: $letter-spacing-tabs;
   white-space: nowrap;
   cursor: pointer;
   transition:
-    color 0.2s ease,
-    border-color 0.2s ease;
+    color $transition-fast,
+    border-color $transition-fast;
 
   &:hover {
     color: $color-text;

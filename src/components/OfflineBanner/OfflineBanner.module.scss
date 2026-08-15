@@ -1,10 +1,10 @@
-@use '../../styles/variables' as *;
+@use '@styles/variables' as *;
 
 .banner {
   position: fixed;
   bottom: $spacing-14;
   left: 50%;
-  z-index: 1000;
+  z-index: $z-index-banner;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,7 @@
   color: $color-white;
   background-color: $color-error;
   border-radius: $border-radius-sm;
+  transform: translateX(-50%);
 
   @include desktop {
     position: relative;
@@ -23,7 +24,7 @@
     width: 100%;
     max-width: 100%;
     padding: $spacing-10 $spacing-11 $spacing-banner-bottom;
-    border-radius: $spacing-0;
+    border-radius: $border-radius-none;
     box-shadow: $shadow-none;
     transform: none;
   }
