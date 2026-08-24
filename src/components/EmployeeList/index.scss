@@ -1,0 +1,62 @@
+@use '@common/styles/variables' as *;
+
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  margin: $spacing-0;
+  padding: $spacing-7 $spacing-10;
+  list-style: none;
+
+  @include tablet {
+    width: $content-width-tablet;
+    margin: $spacing-0 auto;
+  }
+
+  @include desktop {
+    width: $desktop-width;
+    margin: $spacing-0 auto;
+  }
+
+  &--plain {
+    gap: $spacing-4;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__group-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+    margin: $spacing-0;
+    padding: $spacing-0;
+    list-style: none;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: $spacing-12 $spacing-0;
+    padding: $spacing-0 $spacing-11;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: $size-divider-height;
+      background-color: $color-border;
+    }
+  }
+
+  &__divider-year {
+    padding: $spacing-0 $spacing-divider-year-padding;
+    color: $color-border;
+    font-size: $font-size-15;
+    font-weight: $font-weight-500;
+    line-height: $line-height-20;
+  }
+}

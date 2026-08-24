@@ -1,0 +1,59 @@
+@use '@common/styles/variables' as *;
+
+.employees-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: $spacing-0;
+  overflow-x: hidden;
+
+  &__filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-filter-gap;
+    width: 100%;
+    max-width: 100%;
+    padding: $spacing-filter-mobile-top $spacing-10 $spacing-5;
+
+    @include tablet {
+      width: $content-width-tablet;
+      max-width: $content-width-tablet;
+      margin: $spacing-0 auto;
+    }
+
+    @include desktop {
+      gap: $spacing-9;
+      width: $desktop-width;
+      max-width: $desktop-width;
+      margin: $spacing-0 auto;
+      padding: $spacing-desktop-offset $spacing-10 $spacing-5 $spacing-desktop-offset;
+    }
+
+    &--offline {
+      @include desktop {
+        padding-top: $spacing-offline-desktop;
+      }
+    }
+
+    &--has-error {
+      display: none;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
+
+  &__title {
+    display: none;
+    margin: $spacing-0 $spacing-0 $spacing-4 $spacing-title-offset;
+    font-size: $font-size-24;
+    font-weight: $font-weight-700;
+    line-height: $line-height-28;
+    color: $color-text;
+
+    @include desktop {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+@use '@common/styles/variables' as *;
+
+.employee-profile-page {
+  &__loading {
+    padding: $spacing-14 $spacing-10;
+    color: $color-text-muted;
+    text-align: center;
+  }
+
+  &__top-wrapper {
+    background-color: $color-bg-light;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: $size-profile-content-height;
+    padding-bottom: $spacing-11;
+
+    @include tablet {
+      width: $content-width-tablet;
+      margin: $spacing-0 auto;
+    }
+
+    @include desktop {
+      width: $desktop-width;
+      margin: $spacing-0 auto;
+    }
+  }
+
+  &__back-button {
+    position: absolute;
+    top: $spacing-5;
+    left: $spacing-6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size-button-back;
+    height: $size-button-back;
+    background-color: transparent;
+    border: none;
+    border-radius: $border-radius-circle;
+
+    @include desktop {
+      top: $spacing-back-desktop-top;
+      left: $spacing-bottom-wrapper;
+    }
+
+    &:hover {
+      background-color: $color-border;
+    }
+  }
+
+  &__avatar {
+    width: $size-avatar-lg;
+    height: $size-avatar-lg;
+    border-radius: $border-radius-circle;
+    object-fit: cover;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    margin: $spacing-11 $spacing-0 $spacing-8;
+    font-size: $font-size-24;
+    font-weight: $font-weight-700;
+    line-height: $line-height-28;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  &__tag {
+    margin-left: $spacing-4;
+    color: $color-text-muted;
+    font-size: $font-size-17;
+    font-weight: $font-weight-400;
+  }
+
+  &__position {
+    color: $color-text-secondary;
+    text-transform: capitalize;
+    font-size: $font-size-13;
+    font-weight: $font-weight-400;
+  }
+
+  &__bottom-wrapper {
+    padding: $spacing-6 $spacing-bottom-wrapper;
+
+    @include tablet {
+      width: $content-width-tablet;
+      margin: $spacing-0 auto;
+    }
+
+    @include desktop {
+      width: $desktop-width;
+      margin: $spacing-0 auto;
+    }
+  }
+
+  &__info-row {
+    display: flex;
+    align-items: center;
+    min-height: $spacing-16;
+    margin-bottom: $spacing-5;
+    font-weight: $font-weight-500;
+    letter-spacing: $letter-spacing-wide;
+    text-transform: lowercase;
+  }
+
+  &__info-icon {
+    flex-shrink: 0;
+    margin-right: $spacing-9;
+  }
+
+  &__info-text {
+    color: $color-text;
+
+    &--birth-date {
+      letter-spacing: $letter-spacing-tight;
+    }
+  }
+
+  &__info-extra {
+    margin: $spacing-0 $spacing-3 $spacing-0 auto;
+    color: $color-text-muted;
+    font-weight: $font-weight-500;
+    letter-spacing: $letter-spacing-tight;
+    text-transform: none;
+  }
+}

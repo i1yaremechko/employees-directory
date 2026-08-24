@@ -1,0 +1,57 @@
+@use '@common/styles/variables' as *;
+
+.search-input {
+  display: flex;
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: $size-input-height;
+    padding: $spacing-0 $spacing-6 $spacing-0 $spacing-search-padding;
+    margin: -#{$spacing-1} $spacing-0 $spacing-1;
+    background-color: $color-bg-light;
+    border-radius: $border-radius-md;
+  }
+
+  &__icon {
+    margin-right: $spacing-search-offset;
+    flex-shrink: 0;
+  }
+
+  &__field {
+    flex: 1;
+    height: $line-height-20;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: $color-text;
+    font-size: $font-size-15;
+    font-weight: $font-weight-500;
+    line-height: $line-height-20;
+    letter-spacing: $letter-spacing-normal;
+
+    &::placeholder {
+      color: $color-border;
+    }
+  }
+
+  &__sort-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-4;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__sort-icon {
+    margin: $spacing-0 $spacing-1 $spacing-2 $spacing-0;
+
+    &--active {
+      filter: $filter-icon-active;
+    }
+  }
+}

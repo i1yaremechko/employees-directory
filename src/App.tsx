@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { EmployeeProfilePage } from '@pages/EmployeeProfilePage/EmployeeProfilePage';
-import { EmployeesPage } from '@pages/EmployeesPage/EmployeesPage';
+import { EmployeeProfilePage } from '@pages/EmployeeProfilePage';
+import { EmployeesPage } from '@pages/EmployeesPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 
 function App() {
