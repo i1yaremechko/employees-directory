@@ -2,39 +2,18 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { ApiError, fetchEmployeeById } from '@common/api/employees';
-import type { Employee } from '@common/types/employee';
+import type { Employee } from '@/common/types';
 import { ErrorState } from '@components/ErrorState';
+import {
+  UNKNOWN_ERROR_MESSAGE,
+  calculateAge,
+  formatBirthDateLong,
+  formatPosition,
+} from '@pages/EmployeeProfilePage/utils';
 
 import './index.scss';
 
 const BASE_URL = import.meta.env.BASE_URL;
-
-function formatPosition(position: string): string {
-  return position.charAt(0) + position.slice(1).toLowerCase();
-}
-
-function formatBirthDateLong(birthDate: string): string {
-  const [day, month, year] = birthDate.split('.').map(Number);
-  const date = new Date(year, month - 1, day);
-  const formatted = date.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-  return formatted.toLowerCase();
-}
-
-function calculateAge(birthDate: string): number {
-  const [day, month, year] = birthDate.split('.').map(Number);
-  const birth = new Date(year, month - 1, day);
-  const today = new Date();
-  let age = today.getFullYear() - birth.getFullYear();
-  const hasHadBirthdayThisYear =
-    today.getMonth() > birth.getMonth() ||
-    (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
-  if (!hasHadBirthdayThisYear) age -= 1;
-  return age;
-}
 
 export function EmployeeProfilePage() {
   const { id } = useParams<{ id: string }>();
@@ -56,7 +35,7 @@ export function EmployeeProfilePage() {
       })
       .catch((err: unknown) => {
         if (!isCancelled) {
-          setError(err instanceof ApiError ? err : new ApiError('UNKNOWN_ERROR'));
+          setError(err instanceof ApiError ? err : new ApiError(UNKNOWN_ERROR_MESSAGE));
         }
       })
       .finally(() => {
@@ -91,7 +70,7 @@ export function EmployeeProfilePage() {
             onClick={() => navigate(-1)}
             aria-label="Go back"
           >
-            <img src={`${BASE_URL}/images/arrow.svg`} alt="" />
+            <img src={`${BASE_URL}/images/arrow.svg`} alt="" aria-hidden="true" />
           </button>
           <img
             className="employee-profile-page__avatar"
@@ -117,7 +96,8 @@ export function EmployeeProfilePage() {
           <img
             className="employee-profile-page__info-icon"
             src={`${BASE_URL}/images/star.svg`}
-            alt=""
+            alt="Birth date icon"
+            aria-hidden="true"
           />
           <span className="employee-profile-page__info-text employee-profile-page__info-text--birth-date">
             {formatBirthDateLong(employee.birthDate)}
@@ -130,7 +110,8 @@ export function EmployeeProfilePage() {
           <img
             className="employee-profile-page__info-icon"
             src={`${BASE_URL}/images/phone.svg`}
-            alt=""
+            alt="Phone icon"
+            aria-hidden="true"
           />
           <span className="employee-profile-page__info-text">{employee.phone}</span>
         </div>

@@ -1,4 +1,4 @@
-import type { Employee } from '@/common/types/employee';
+import type { Employee } from '@/common/types';
 
 const BASE_URL = 'https://68f747b1f7fb897c66152f05.mockapi.io';
 

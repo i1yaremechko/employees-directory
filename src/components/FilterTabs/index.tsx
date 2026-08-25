@@ -1,7 +1,7 @@
-import type { EmployeePosition } from '@common/types/employee';
+import { POSITION_TABS } from './configs';
+import type { EmployeePosition } from '@/common/types';
 
 import './index.scss';
-import { POSITION_TABS } from './configs';
 
 interface FilterTabsProps {
   active: EmployeePosition | 'ALL';

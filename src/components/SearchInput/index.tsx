@@ -27,7 +27,7 @@ export function SearchInput({
         <img
           className="search-input__icon"
           src={`${BASE_URL}/images/search.svg`}
-          alt=""
+          alt="Search icon"
         />
         <input
           className="search-input__field"
@@ -47,7 +47,7 @@ export function SearchInput({
             className={`search-input__sort-icon ${isSortActive ? 'search-input__sort-icon--active' : ''
               }`}
             src={`${BASE_URL}/images/list.svg`}
-            alt=""
+            alt="Sort icon"
           />
         </button>
       </div>

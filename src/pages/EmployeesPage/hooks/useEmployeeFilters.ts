@@ -1,5 +1,6 @@
-import type { EmployeePosition, SortOption } from '@/common/types/employee';
 import { useSearchParams } from 'react-router-dom';
+
+import type { EmployeePosition, SortOption } from '@/common/types';
 
 export function useEmployeeFilters() {
   const [searchParams, setSearchParams] = useSearchParams();

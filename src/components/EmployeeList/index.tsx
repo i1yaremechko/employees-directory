@@ -1,8 +1,8 @@
-import type { Employee, SortOption } from '@common/types/employee';
 import { EmployeeItem } from '@components/EmployeeItem';
-import { EmptyState } from '@components/EmptyState';
+import { EmptyMessage } from '@components/EmptyMessage';
+import { groupByBirthYear } from './utils';
+import type { Employee, SortOption } from '@/common/types';
 
-import { groupByBirthYear } from './utils/groupByBirthYear';
 import './index.scss';
 
 interface EmployeeListProps {
@@ -15,11 +15,11 @@ interface EmployeeListProps {
 export function EmployeeList({
   employees,
   sort,
-  emptyTitle = "We didn't find anyone",
-  emptySubtitle = 'Try to adjust your request',
+  emptyTitle,
+  emptySubtitle,
 }: EmployeeListProps) {
   if (employees.length === 0) {
-    return <EmptyState title={emptyTitle} subtitle={emptySubtitle} />;
+    return <EmptyMessage title={emptyTitle} subtitle={emptySubtitle} />;
   }
 
   if (sort === 'birthDate') {

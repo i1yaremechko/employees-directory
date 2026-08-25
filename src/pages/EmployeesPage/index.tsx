@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react';
 
-import { applySort } from '@common/utils/sorting';
+import { useEmployeeFilters } from '@pages/EmployeesPage/hooks/useEmployeeFilters';
+import { useEmployees } from '@pages/EmployeesPage/hooks/useEmployees';
 import { EmployeeList } from '@components/EmployeeList';
 import { ErrorState } from '@components/ErrorState';
 import { FilterTabs } from '@components/FilterTabs';
@@ -8,8 +9,7 @@ import { OfflineBanner } from '@components/OfflineBanner';
 import { SearchInput } from '@components/SearchInput';
 import { EmployeeListSkeleton } from '@components/Skeleton';
 import { SortControl } from '@components/SortControl';
-import { useEmployeeFilters } from '@pages/EmployeesPage/hooks/useEmployeeFilters';
-import { useEmployees } from '@pages/EmployeesPage/hooks/useEmployees';
+import { applySort } from '@/common/utils';
 import { filterByPosition, filterBySearch } from '@pages/EmployeesPage/utils/filtering';
 
 import './index.scss';

@@ -1,5 +1,9 @@
-import type { Employee, SortOption } from '@/common/types/employee';
-import { parseBirthDate } from './date';
+import type { Employee, SortOption } from '@/common/types';
+
+export function parseBirthDate(birthDate: string): Date {
+  const [day, month, year] = birthDate.split('.').map(Number);
+  return new Date(year, month - 1, day);
+}
 
 export function sortByAlphabet(employees: Employee[]): Employee[] {
   return [...employees].sort((a, b) => a.firstName.localeCompare(b.firstName));

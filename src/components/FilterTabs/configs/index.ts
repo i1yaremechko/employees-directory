@@ -1,4 +1,4 @@
-import type { EmployeePosition } from '@common/types/employee';
+import type { EmployeePosition } from '@/common/types';
 
 export interface PositionTab {
   key: string;

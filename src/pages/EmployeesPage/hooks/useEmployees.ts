@@ -1,6 +1,7 @@
-import { fetchEmployees, ApiError } from '@/common/api/employees';
-import type { Employee } from '@/common/types/employee';
 import { useEffect, useState } from 'react';
+
+import { fetchEmployees, ApiError } from '@/common/api/employees';
+import type { Employee } from '@/common/types';
 
 interface UseEmployeesResult {
   employees: Employee[];

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import type { SortOption } from '@common/types/employee';
+import type { SortOption } from '@/common/types';
 
 import './index.scss';
 

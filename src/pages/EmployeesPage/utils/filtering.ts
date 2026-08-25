@@ -1,4 +1,4 @@
-import type { Employee, EmployeePosition } from '@/common/types/employee';
+import type { Employee, EmployeePosition } from '@/common/types';
 
 export function filterByPosition(
   employees: Employee[],
