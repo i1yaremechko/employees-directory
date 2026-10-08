@@ -1,6 +1,6 @@
 import type { Employee } from '@/common/types';
 
-const BASE_URL = 'https://68f747b1f7fb897c66152f05.mockapi.io';
+const API_URL: string = import.meta.env.VITE_API_URL ?? 'http://localhost:3000/api';
 
 export class ApiError extends Error {
   status?: number;
@@ -16,7 +16,7 @@ export async function fetchEmployees(): Promise<Employee[]> {
   let response: Response;
 
   try {
-    response = await fetch(`${BASE_URL}/employees`);
+    response = await fetch(`${API_URL}/employees`);
   } catch {
     throw new ApiError('NETWORK_ERROR');
   }
@@ -32,7 +32,7 @@ export async function fetchEmployeeById(id: string): Promise<Employee> {
   let response: Response;
 
   try {
-    response = await fetch(`${BASE_URL}/employees/${id}`);
+    response = await fetch(`${API_URL}/employees/${id}`);
   } catch {
     throw new ApiError('NETWORK_ERROR');
   }
